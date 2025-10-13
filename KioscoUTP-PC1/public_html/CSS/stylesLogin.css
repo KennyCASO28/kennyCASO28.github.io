@@ -1,123 +1,249 @@
-:root{
-  --utp-red: #C8102E;      /* Rojo UTP principal */
-  --utp-red-800: #A30D25;  /* Rojo más oscuro */
-  --ink: #0b1324;          /* Texto principal */
-  --ink-2: #4b5563;        /* Texto secundario */
-  --card: #ffffff;         /* Fondo tarjeta */
-  --line: #e5e7eb;         /* Borde suave */
-  --shadow: 0 20px 50px rgba(0,0,0,.15), 0 2px 10px rgba(0,0,0,.06);
-  --radius-xl: 22px;
-  --radius-md: 12px;
-  --focus: 0 0 0 3px rgba(200,16,46,.2), 0 0 0 6px rgba(200,16,46,.12);
+:root {
+  /* Paleta de colores institucional*/
+  --utp-red: #C8102E;
+  --utp-dark: #A30D25;
+  --text-main: #0b1324;
+  --text-muted: #555;
+  --bg-light: #ffffff;
+  --font-main: 'Segoe UI', Arial, sans-serif;
 }
 
-*{box-sizing:border-box}
-html, body{height:100%}
-
-body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans";
-  color:var(--ink);
-  /* Fondo rojo con diagonales y brillos */
-  background:
-    /* capa diagonal tenue */
-    linear-gradient(135deg, rgba(0,0,0,.12), rgba(0,0,0,0)) top left/100% 100% no-repeat,
-    /* resplandor */
-    radial-gradient(1200px 600px at 80% -10%, #ef2643 0%, transparent 60%),
-    /* gradiente principal */
-    linear-gradient(135deg, var(--utp-red-800), var(--utp-red));
-  min-height:100dvh;
-  display:grid; place-items:center;
-  overflow-x:hidden;
+* {
+  /*Reset básico para márgenes y paddings*/
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Iconografía tenue (hamburguesa y café) */
-body::before, body::after{
-  content:""; position:fixed; pointer-events:none; opacity:.12; mix-blend-mode:soft-light;
-  background-size:contain; background-repeat:no-repeat; filter:contrast(110%);
-}
-/* Hamburguesa (abajo-izquierda) */
-body::before{
-  width:360px; height:360px; left:5vw; bottom:6vh;
-  background-image:url("data:image/svg+xml;utf8,\
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23ffffff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'>\
-    <path d='M40 90c0-25 35-45 60-45s60 20 60 45'/>\
-    <path d='M20 100h160'/>\
-    <rect x='35' y='110' width='130' height='34' rx='10'/>\
-    <path d='M55 110c0 10 90 10 90 0'/>\
-  </svg>");
-}
-/* Vaso de café (arriba-derecha) */
-body::after{
-  width:340px; height:340px; right:6vw; top:8vh;
-  background-image:url("data:image/svg+xml;utf8,\
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220' fill='none' stroke='%23ffffff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'>\
-    <path d='M50 60h120l-10 120a20 20 0 0 1-20 18H80a20 20 0 0 1-20-18L50 60z'/>\
-    <rect x='40' y='40' width='140' height='24' rx='8'/>\
-    <path d='M170 90h25a18 18 0 0 1 0 36h-22'/>\
-    <path d='M95 28c0 10-12 10-12 20M125 24c0 12-14 12-14 24M150 30c0 10-12 10-12 20'/>\
-  </svg>");
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background-color: #f2f2f2;
+  color: var(--text-main);
+  overflow-x: hidden;
 }
 
-/* Tarjeta de login */
-.card{
-  width:min(540px, 92vw);
-  background:var(--card);
-  border-radius:var(--radius-xl);
-  box-shadow:var(--shadow);
-  position:relative;
-  padding:28px 28px 22px;
+
+.barra-roja {
+  /*Encabezado institucional rojo*/
+  background-color: var(--utp-red);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Pestaña roja superior con logo UTP */
-.tab{
-  position:absolute; left:18px; right:18px; top:-52px; height:64px;
-  background:linear-gradient(180deg, #ff314d, var(--utp-red));
-  border-top-left-radius:var(--radius-xl); border-top-right-radius:var(--radius-xl);
-  border-bottom-left-radius:18px; border-bottom-right-radius:18px;
-  display:flex; align-items:center; padding:0 22px; color:#fff; font-weight:900; letter-spacing:.5px;
-  box-shadow:0 10px 30px rgba(200,16,46,.45);
+.barra-roja h1 {
+  /*Título principal dentro de la barra roja*/
+  margin: 0;
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
-.tab .brand{font-size:22px}
 
-/* Encabezado y subtítulo */
-h1{margin:18px 0 6px; font-size:32px; letter-spacing:.4px}
-.sub{margin:0 0 18px; color:var(--ink-2)}
-
-/* Formulario */
-form{display:grid; gap:12px}
-label{font-size:14px; font-weight:700}
-.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
-
-.field{display:flex; align-items:center; background:#fff; border:1px solid var(--line); border-radius:var(--radius-md); padding:10px 12px}
-.field input{appearance:none; border:none; outline:none; width:100%; font-size:16px; background:transparent}
-.field:focus-within{box-shadow:var(--focus); border-color:#f1b1bb}
-
-.actions{display:grid; gap:10px; margin-top:4px}
-.btn{
-  appearance:none; border:none; cursor:pointer; font-weight:800; letter-spacing:.2px;
-  padding:12px 16px; border-radius:var(--radius-md); transition:transform .05s ease-in; text-align:center;
+.container {
+  /*Contenedor principal de info + login*/
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
-.btn.primary{background:var(--utp-red); color:#fff}
-.btn.primary:active{transform:translateY(1px)}
 
-.links{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:2px}
-.a{color:var(--utp-red); font-weight:700; text-decoration:none}
-.a:hover{text-decoration:underline}
-
-/* Botón alternativo tipo píldora */
-.alt{
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  background:#fff; border:1px solid var(--line); border-radius:999px; padding:10px 14px;
-  font-weight:800; color:#0f172a; text-decoration:none; box-shadow:0 1px 0 rgba(0,0,0,.04);
+/* Información institucional */
+.info {
+  /*Sección de texto institucional*/
+  flex: 1;
+  max-width: 600px;
 }
-.alt svg{width:18px; height:18px}
 
-.foot{margin-top:12px; color:var(--ink-2); font-size:12px; text-align:center}
+.info h2 {
+  /* Título de sección*/
+  font-size: 28px;
+  color: var(--utp-red);
+  margin-bottom: 10px;
+}
 
-/* Responsivo sutil */
-@media (max-width:420px){
-  .tab{left:12px; right:12px}
-  .card{padding:24px 20px 18px}
-  h1{font-size:26px}
+.info h3 {
+  /* Subtítulos como Misión, Visión, etc.*/
+  font-size: 20px;
+  margin-top: 20px;
+  color: var(--utp-red);
+}
+
+.info p, .info ul {
+  /*Texto general y listas*/
+  font-size: 16px;
+  margin-top: 8px;
+  color: var(--text-muted);
+}
+
+ul {
+  /* Lista sin viñetas por defecto*/
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  /* Icono de check para cada ítem*/
+  content: "●";
+  margin-right: 6px;
+}
+
+blockquote {
+  /* Estilo para testimonios*/
+  font-style: italic;
+  background: #f9f9f9;
+  padding: 10px 16px;
+  border-left: 4px solid var(--utp-red);
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+/* Login */
+.login {
+  /*Caja de login*/
+  flex: 1;
+  max-width: 360px;
+  background: #fdfdfd;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.login h2 {
+  /*Título del login*/
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--utp-red);
+}
+
+form {
+  /* Estructura del formulario*/
+  display: grid;
+  gap: 12px;
+}
+
+input {
+  /* Campos de texto*/
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  /* Botón de ingreso*/
+  background-color: var(--utp-red);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  /*Hover del botón*/
+  background-color: var(--utp-dark);
+}
+
+.links {
+  /* Enlaces debajo del botón*/
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.links a {
+  /* Estilo de enlaces*/
+  color: var(--utp-red);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.links a:hover {
+  /* Hover de enlaces*/
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  /* Pie de página institucional*/
+  text-align: center;
+  margin-top: 60px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  /*Adaptación para móviles*/
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .info, .login {
+    max-width: 100%;
+  }
+
+  .info h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+
+/*fondo decorativo*/
+.emoji-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+.emoji-fondo span {
+  position: absolute;
+  font-size: 100px;
+  opacity: 0.1;
+  animation: flotar 5s infinite ease-in-out;
+}
+
+/* Posiciones aleatorias manuales */
+.emoji-fondo span:nth-child(1) { top: 5%; left: 10%; }
+.emoji-fondo span:nth-child(2) { top: 20%; left: 70%; }
+.emoji-fondo span:nth-child(3) { top: 35%; left: 30%; }
+.emoji-fondo span:nth-child(4) { top: 50%; left: 80%; }
+.emoji-fondo span:nth-child(5) { top: 65%; left: 15%; }
+.emoji-fondo span:nth-child(6) { top: 75%; left: 60%; }
+.emoji-fondo span:nth-child(7) { top: 85%; left: 40%; }
+.emoji-fondo span:nth-child(8) { top: 10%; left: 85%; }
+.emoji-fondo span:nth-child(9) { top: 45%; left: 5%; }
+.emoji-fondo span:nth-child(10){ top: 30%; left: 50%; }
+.emoji-fondo span:nth-child(11){ top: 60%; left: 90%; }
+.emoji-fondo span:nth-child(12){ top: 80%; left: 25%; }
+.emoji-fondo span:nth-child(13){ top: 15%; left: 35%; }
+.emoji-fondo span:nth-child(14){ top: 55%; left: 65%; }
+.emoji-fondo span:nth-child(15){ top: 70%; left: 45%; }
+
+
+/* Animación opcional */
+@keyframes flotar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }

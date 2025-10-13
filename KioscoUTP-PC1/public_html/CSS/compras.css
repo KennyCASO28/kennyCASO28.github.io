@@ -1,9 +1,43 @@
 /* ==== COMPRAS.HTML ==== */
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to bottom, #fff5f5, #f4f4f4);
   color: #1c1c1c;
+}
+carrito-emergente {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: #fff;
+  border: 2px solid #e74c3c;
+  padding: 1rem;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.carrito-emergente h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.carrito-emergente ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.carrito-emergente li {
+  margin-bottom: 0.5rem;
+}
+
+.btn-comprar-final {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
 /* Encabezado */

@@ -4,39 +4,47 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
- background: linear-gradient(to bottom, #fff5f5, #f4f4f4);
+  padding-top: 80px;
+  background: linear-gradient(to bottom, #fff5f5, #f4f4f4);
 }
 
 /* ============================
    BARRA SUPERIOR INSTITUCIONAL
 ============================ */
 .barra-superior {
-  position: sticky; /* Se mantiene visible al hacer scroll */
+  position: fixed;
   top: 0;
   z-index: 1000;
+  width: 97%; 
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: space-between; 
+  flex-wrap: nowrap; 
   gap: 1em;
-  padding: 1.8em;
+  padding: 1em 2em;
   background: linear-gradient(90deg, #A30D25, #C8102E);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 2000px;
+  margin: 0 auto;
 }
 
-/* Título institucional */
+/* ============================
+   TÍTULO INSTITUCIONAL
+============================ */
 .titulo {
   font-size: 2em;
   color: white;
   margin: 0;
-  flex: 0 0 auto;
+  flex-shrink: 0;
 }
 
-/* Menú horizontal */
+/* ============================
+   MENÚ HORIZONTAL
+============================ */
 .menu-navegacion ul {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
+  align-items: center;
+  gap: 0.7em;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -46,57 +54,65 @@ body {
   text-decoration: none;
   color: #C8102E;
   background: white;
-  padding: 0.7em 1.4em; /* 👈 más espacio interno */
-  border-radius: 14px;
+  padding: 0.6em 1.3em;
+  border-radius: 12px;
   font-weight: bold;
-  font-size: 1.15em; /* 👈 ligeramente más grande */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 1.05em;
+  min-width: 120px; /* 👈 Tamaño uniforme */
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
-
 
 .menu-navegacion a:hover {
   background-color: #ffe5e5;
   transform: translateY(-2px);
 }
 
-/* Buscador alineado con el menú */
+/* ============================
+   BUSCADOR Y BOTÓN
+============================ */
 .buscador {
   display: flex;
   align-items: center;
   gap: 0.5em;
-  flex: 0 0 auto;
+  flex-shrink: 0;
 }
 
 /* Campo de búsqueda */
 #buscar {
-  padding: 0.6em 3em;
+  padding: 0.6em 1em;
   font-size: 1em;
   border: 2px solid #ccc;
   border-radius: 8px;
-  width: 200px;
-  
+  width: 160px;
+  transition: border-color 0.3s ease;
 }
 
-/* Botón ver todos */
+#buscar:focus {
+  outline: none;
+  border-color: #C8102E;
+}
+
+/* Botón "Ver todos" */
 #verTodo {
-  background: #000000 ;
-  color: #f4f4f4; 
+  background: #000000;
+  color: #f4f4f4;
   font-weight: bold;
   border: 2px solid #C8102E;
-  height: 40px;
-  padding: 0 1.2em; /* Espaciado horizontal */
-  display: flex;
-  align-items: center;
-
+  padding: 0.6em 1.2em;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 #verTodo:hover {
   background-color: #ffe5e5;
+  color: #C8102E;
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(200, 16, 46, 0.3);
 }
@@ -129,7 +145,6 @@ body {
   padding: 2em;
   gap: 1em;
 }
-
 /* ============================
    TARJETAS DE PRODUCTO
 ============================ */
@@ -267,7 +282,7 @@ section h2 {
   font-weight: 800;
   color: white;
   background: linear-gradient(to right, #1c1c1c, #3a3a3a); /* Degradado negro-plomo */
-  padding: 3em 0;
+  padding: 2.0em 0;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -275,7 +290,7 @@ section h2 {
   box-shadow: 0 6px 16px rgba(0,0,0,0.2);
   border-radius: 12px;
   animation: fadeInUp 0.6s ease forwards;
-  scroll-margin-top: 120px; /* Alineación perfecta al hacer clic desde el menú */
+  scroll-margin-top: 100px; /* Alineación perfecta al hacer clic desde el menú */
 }
 
 
@@ -310,7 +325,7 @@ section h2::after {
 }
 /* ==== CARRUSEL AUTOMÁTICO + MANUAL (REACTIVABLE) ==== */
 .carrusel {
-  width: 110%;
+  width: 100%;
   max-width: 2000px;
   height: 400px;
   position: relative;
@@ -318,6 +333,7 @@ section h2::after {
   overflow: hidden;
   border-radius: 15px;
 }
+
 
 /* Contenedor de slides */
 .slides {
@@ -409,4 +425,25 @@ section h2::after {
   position: absolute;
   inset: 0;
   animation: autoplay 20s infinite;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 1200px) {
+  .menu-navegacion ul {
+    justify-content: center;
+  }
+
+  .buscador {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1em;
+  }
+
+  #buscar {
+    width: 60%;
+    max-width: 300px;
+  }
 }

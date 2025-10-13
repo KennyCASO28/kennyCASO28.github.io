@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kiosco UTP</title>
+        <link href="CSS/stylesLogin.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="barra-roja">
+            <h1>Kiosco UTP</h1>
+            <p> ¡Pide, recoge y Listo!
+        </header>
+
+        <div class="container">
+            <!-- Información institucional -->
+            <section class="info">
+                <h2>¿Qué es el Kiosco UTP?</h2>
+                <p>
+                    Es una plataforma web diseñada para estudiantes de la Universidad Tecnológica del Perú. Permite visualizar el menú del cafetín, hacer pedidos anticipados y evitar colas, optimizando el tiempo entre clases.
+                </p>
+
+                <h3>Beneficios principales</h3>
+                <ul>
+                    <li> Menú en tiempo real</li>
+                    <li> Pedidos anticipados desde cualquier dispositivo</li>
+                    <li>Menos filas, más receso</li>
+                </ul>
+
+                <h3>Misión</h3>
+                <p>
+                    Mejorar la experiencia estudiantil dentro del campus, facilitando el acceso rápido y cómodo a alimentos mediante tecnología web.
+                </p>
+
+                <h3>Visión</h3>
+                <p>
+                    Ser la herramienta digital de pedidos más reconocida en universidades del Perú, promoviendo innovación y eficiencia en servicios estudiantiles.
+                </p>
+
+                <h3>Testimonio</h3>
+                <blockquote>
+                    “¡Nunca me preocupé por dónde retirar mi lonchera. Gracias Kiosco UTP!” — Estudiante UTP
+                </blockquote>
+            </section>
+
+            <!-- Login -->
+            <section class="login">
+                <form action="menu.html" method="get">
+                    <h2>Iniciar sesión</h2>
+
+                    <input type="text" id="user" name="user" placeholder="Correo UTP o Código" required />
+                    <input type="password" id="pass" name="pass" placeholder="Contraseña" required />
+
+                    <button type="submit">Ingresar</button>
+
+                    <div class="links">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                        <a href="#">Crear nueva cuenta</a>
+                    </div>
+                </form>
+
+            </section>
+        </div>
+        <div class="emoji-fondo">
+            <span>🍔</span><span>🍕</span><span>🥪</span><span>🍟</span><span>🍩</span>
+            <span>🍹</span><span>🍱</span><span>🍜</span><span>🍦</span><span>🥤</span>
+            <span>🍗</span><span>🍇</span><span>🍉</span><span>🍌</span><span>🍰</span>
+
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Universidad Tecnológica del Perú – Campus Ate</p>
+        </footer>
+
+    </body>
+</html>
