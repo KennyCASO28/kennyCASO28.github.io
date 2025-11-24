@@ -1,0 +1,454 @@
+/* =======================================
+   1. VARIABLES Y RESET BÁSICO
+======================================= */
+:root {
+  /* Paleta de colores institucional*/
+  --utp-red: #C8102E;
+  --utp-dark: #A30D25;
+  --text-main: #0b1324;
+  --text-muted: #555;
+  --bg-light: #ffffff;
+  --font-main: 'Segoe UI', Arial, sans-serif;
+}
+
+* {
+  /*Reset básico para márgenes y paddings*/
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background-color: #f2f2f2;
+  color: var(--text-main);
+  overflow-x: hidden; /* Asegura que no haya scroll horizontal */
+}
+
+/* =======================================
+   2. ENCABEZADO Y LAYOUT PRINCIPAL
+======================================= */
+.barra-roja {
+  /*Encabezado institucional rojo*/
+  background-color: var(--utp-red);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.barra-roja h1 {
+  /*Título principal dentro de la barra roja*/
+  margin: 0;
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.container {
+  /*Contenedor principal de info + login*/
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* =======================================
+   3. SECCIONES DE CONTENIDO (INFO)
+======================================= */
+.info {
+  /*Sección de texto institucional*/
+  flex: 1;
+  max-width: 600px;
+}
+
+.info h2 {
+  /* Título de sección*/
+  font-size: 28px;
+  color: var(--utp-red);
+  margin-bottom: 10px;
+}
+
+.info h3 {
+  /* Subtítulos como Misión, Visión, etc.*/
+  font-size: 20px;
+  margin-top: 20px;
+  color: var(--utp-red);
+}
+
+.info p, .info ul {
+  /*Texto general y listas*/
+  font-size: 16px;
+  margin-top: 8px;
+  color: var(--text-muted);
+}
+
+ul {
+  /* Lista sin viñetas por defecto*/
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  /* Icono de check para cada ítem*/
+  content: "●";
+  margin-right: 6px;
+}
+
+blockquote {
+  /* Estilo para testimonios*/
+  font-style: italic;
+  background: #f9f9f9;
+  padding: 10px 16px;
+  border-left: 4px solid var(--utp-red);
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+/* =======================================
+   4. SECCIÓN LOGIN
+======================================= */
+.login {
+  /*Caja de login*/
+  flex: 1;
+  max-width: 360px;
+  background: #fdfdfd;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.login h2 {
+  /*Título del login*/
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--utp-red);
+}
+
+form {
+  /* Estructura del formulario*/
+  display: grid;
+  gap: 12px;
+}
+
+input {
+  /* Campos de texto*/
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  /* Botón de ingreso*/
+  background-color: var(--utp-red);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  /*Hover del botón*/
+  background-color: var(--utp-dark);
+}
+
+.links {
+  /* Enlaces debajo del botón*/
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.links a {
+  /* Estilo de enlaces*/
+  color: var(--utp-red);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.links a:hover {
+  /* Hover de enlaces*/
+  text-decoration: underline;
+}
+
+/* =======================================
+   5. PIE DE PÁGINA INSTITUCIONAL (FOOTER)
+======================================= */
+.footer-institucional { /* Nueva clase para el footer completo */
+  background-color: #000;
+  color: #fff;
+  padding: 40px 20px;
+  font-size: 14px;
+  margin-top: 60px;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-col { /* Clase para cada columna de información */
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-col h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* =======================================
+   6. FONDO DECORATIVO (EMOJIS)
+======================================= */
+.emoji-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.emoji-fondo span {
+  position: absolute;
+  font-size: 100px;
+  opacity: 0.1;
+  animation: flotar 5s infinite ease-in-out;
+}
+
+/* Posiciones aleatorias manuales */
+.emoji-fondo span:nth-child(1) { top: 5%; left: 10%; }
+.emoji-fondo span:nth-child(2) { top: 20%; left: 70%; }
+.emoji-fondo span:nth-child(3) { top: 35%; left: 30%; }
+.emoji-fondo span:nth-child(4) { top: 50%; left: 80%; }
+.emoji-fondo span:nth-child(5) { top: 65%; left: 15%; }
+.emoji-fondo span:nth-child(6) { top: 75%; left: 60%; }
+.emoji-fondo span:nth-child(7) { top: 85%; left: 40%; }
+.emoji-fondo span:nth-child(8) { top: 10%; left: 85%; }
+.emoji-fondo span:nth-child(9) { top: 45%; left: 5%; }
+.emoji-fondo span:nth-child(10){ top: 30%; left: 50%; }
+.emoji-fondo span:nth-child(11){ top: 60%; left: 90%; }
+.emoji-fondo span:nth-child(12){ top: 80%; left: 25%; }
+.emoji-fondo span:nth-child(13){ top: 15%; left: 35%; }
+.emoji-fondo span:nth-child(14){ top: 55%; left: 65%; }
+.emoji-fondo span:nth-child(15){ top: 70%; left: 45%; }
+
+
+/* Animación opcional */
+@keyframes flotar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* =======================================
+   7. POPUP DE OFERTA
+   ======================================= */
+.modal-oferta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente (overlay) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Asegura que esté por encima de todo */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal-oferta.oculto {
+    opacity: 0;
+    pointer-events: none; /* Deshabilita clics cuando está oculto */
+}
+
+.modal-contenido {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    /* Animación simple de entrada */
+    transform: scale(1); 
+    transition: transform 0.3s ease;
+}
+
+.modal-oferta.oculto .modal-contenido {
+    transform: scale(0.8);
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Títulos y Contenido */
+.modal-cuerpo h2 {
+    color: var(--utp-red);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.modal-descuento {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: var(--text-main);
+    margin-bottom: 15px;
+}
+
+.descuento-porcentaje {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--utp-dark);
+    margin: 5px 0;
+    animation: pulse 1.5s infinite;
+}
+
+/* Botón de Oferta (Llama la atención) */
+.btn-oferta-login {
+    display: block;
+    background-color: #4CAF50; /* Un color que contraste (Verde de oferta) */
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+.btn-oferta-login:hover {
+    background-color: #45a049;
+}
+
+.modal-instruccion {
+    color: var(--utp-red);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.modal-nota {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Animación de Pulso para el Descuento */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); color: var(--utp-red); }
+    100% { transform: scale(1); }
+}
+
+/* =======================================
+   8. MEDIA QUERIES (RESPONSIVE)
+======================================= */
+
+/* Adaptación para tablets y móviles (<= 768px) */
+@media (max-width: 768px) {
+  /* Layout Principal */
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 15px;
+  }
+
+  .info, .login {
+    max-width: 100%;
+  }
+
+  .info h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  /* Footer: Forzar el apilamiento de columnas */
+  .footer-grid {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .footer-col {
+      min-width: 100%; /* Ocupa todo el ancho */
+      padding: 10px 0;
+  }
+  
+  .footer-col h4 {
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 5px;
+  }
+}
+
+
+/* Adaptación para móviles pequeños (<= 600px) */
+@media (max-width: 600px) {
+    /* Popup */
+    .modal-contenido {
+        padding: 20px;
+    }
+    .descuento-porcentaje {
+        font-size: 2.5rem;
+    }
+    
+    /* Encabezado */
+    .barra-roja h1 {
+        font-size: 32px;
+    }
+    .barra-roja p {
+        font-size: 0.9rem;
+    }
+}

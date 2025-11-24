@@ -1,0 +1,125 @@
+/* =======================================
+   1. RESET BÁSICO Y TIPOGRAFÍA GLOBAL
+======================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* =======================================
+   2. LAYOUT GENERAL Y CONTENEDORES
+======================================= */
+/* Contenedor principal de ancho limitado */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Estilo para etiquetas de formularios */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* =======================================
+   3. MENÚ GRID Y PRODUCTOS (Compartido)
+======================================= */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.producto {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* =======================================
+   4. TABLAS Y MINI-CARRITO (General)
+======================================= */
+.carrito-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.carrito-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.carrito-table th, .carrito-table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.carrito-table img {
+  max-width: 60px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Mini-carrito fijo */
+.mini-carrito {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 300px;
+  max-width: 90%;
+}
+
+
+/* =======================================
+   5. MEDIA QUERIES
+======================================= */
+
+/* Responsividad de Tabla (<= 768px) */
+@media (max-width: 768px) {
+  /* Convierte la tabla en una lista apilada para móviles */
+  .carrito-table, .carrito-table thead, .carrito-table tbody, .carrito-table th, .carrito-table td, .carrito-table tr {
+    display: block;
+  }
+
+  .carrito-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .carrito-table td {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* Responsividad de Mini-carrito (<= 480px) */
+@media (max-width: 480px) {
+  .mini-carrito {
+    right: 10px;
+    bottom: 10px;
+    width: 95%;
+  }
+}
